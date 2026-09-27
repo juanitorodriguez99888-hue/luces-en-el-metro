@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Level2.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="3"]
+
+[node name="Nivel2Ansiedad" type="Node2D"]
+script = ExtResource("1")
+
+[node name="TileMap" type="TileMap" parent="."]
+layer_0/name = "suelo"
+layer_1/name = "paredes"
+layer_2/name = "decoracion"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.15, 0.15, 0.22, 1)
+
+[node name="Luzes" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Luzes"]
+position = Vector2(200, 200)
+color = Color(0.8, 0.9, 1, 1)
+energy = 0.0
+enabled = false
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector2(200, 420)
+
+[node name="Luna" parent="." instance=ExtResource("3")]
+position = Vector2(700, 200)
+
+[node name="Luna2" parent="." instance=ExtResource("3")]
+position = Vector2(820, 440)
+
+[node name="Luna3" parent="." instance=ExtResource("3")]
+position = Vector2(560, 520)
+
+[node name="Audifono" type="Area2D" parent="."]
+position = Vector2(500, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Audifono"]
+shape = RectangleShape2D.new()
